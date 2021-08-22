@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: calculator-gui
+spec:
+  containers:
+    - name: calculator
+      image: cdurmont/calculator:1.0
+      ports:
+        - name: calculator
+          containerPort: 80
+          protocol: TCP

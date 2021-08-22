@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-gui
+  labels:
+    app: calculator
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: calculator
+  template:
+    metadata:
+      labels:
+        app: calculator
+    spec:
+      containers:
+        - name: calculator
+          image: cdurmont/calculator:1.0
+          ports:
+            - name: calculator
+              containerPort: 80
+              protocol: TCP

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-frama-gui
+  labels:
+    app: framaforms
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: framaforms
+  template:
+    metadata:
+      labels:
+        app: framaforms
+    spec:
+      containers:
+        - name: framaforms
+          image: guillaumecar/framaforms
+          ports:
+            - name: framaforms
+              containerPort: 8080
+              protocol: TCP

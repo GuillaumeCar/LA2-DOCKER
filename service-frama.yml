@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frama-service
+spec:
+  selector:
+    app: framaforms
+  ports:
+    - protocol: TCP
+      port: 9000
+      targetPort: 8080
